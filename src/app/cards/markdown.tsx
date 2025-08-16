@@ -8,8 +8,8 @@ export default function MarkdownCard() {
       <CardHeader>
         <h3 className="mb-2 text-xl font-semibold">{title}</h3>
       </CardHeader>
-      <CardContent className="content">
-        <code className="">{JSON.parse(JSON.stringify(content))}</code>
+      <CardContent className="p-2 rounded-md text-slate-600 bg-gray-300">
+        <code>{JSON.parse(JSON.stringify(content))}</code>
       </CardContent>
     </Card>
   );

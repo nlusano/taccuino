@@ -1,4 +1,4 @@
-import MarkdownCard from "./snippets/markdown";
+import MarkdownCard from "./cards/markdown";
 
 export default function Home() {
   return (
