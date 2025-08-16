@@ -1,7 +1,7 @@
-import { markdown } from "@/components/data/markdown";
+import { GitHubMarkdown } from "@/components/data/markdown";
 
 export default function MarkdownTogglableDetails() {
-  const { toggleDetails } = markdown.content;
+  const { toggleDetails } = GitHubMarkdown.content;
 
   return (
     <article>

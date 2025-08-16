@@ -1,4 +1,4 @@
-export const markdown = {
+export const GitHubMarkdown = {
   title: "Markdown helper",
   content: {
     toggleDetails: {
