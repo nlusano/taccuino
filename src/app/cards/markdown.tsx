@@ -7,7 +7,7 @@ export default function MarkdownCard() {
   return (
     <Card>
       <CardHeader>
-        <h3 className="mb-2 text-xl font-semibold">{title}</h3>
+        <h3 className="mb-2 text-3xl font-semibold">{title}</h3>
       </CardHeader>
       <CardContent className="p-2 rounded-md text-slate-600 bg-gray-300">
         <MarkdownTogglableDetails />
