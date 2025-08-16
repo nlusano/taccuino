@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { markdown } from "@/components/data/markdown";
+import { GitHubMarkdown } from "@/components/data/markdown";
 import MarkdownTogglableDetails from "./markdown_togglableDetails";
 
 export default function MarkdownCard() {
-  const { title } = markdown;
+  const { title } = GitHubMarkdown;
   return (
     <Card>
       <CardHeader>
