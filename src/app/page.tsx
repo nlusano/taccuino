@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import MarkdownCard from "./snippets/markdown";
 
 export default function Home() {
   return (
@@ -9,12 +9,7 @@ export default function Home() {
         </article>
         <article id="snippets">
           <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <h3 className="mb-2 text-xl font-semibold"> Snippet 1</h3>
-              </CardHeader>
-              <CardContent>Snippet content.</CardContent>
-            </Card>
+            <MarkdownCard />
             <article className="rounded-lg bg-slate-600 p-6 text-slate-300">
               <h3 className="mb-2 text-xl font-semibold">Snippet 2</h3>
               <p>Snippet content.</p>
