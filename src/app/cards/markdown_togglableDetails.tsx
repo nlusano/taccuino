@@ -13,12 +13,16 @@ export default function MarkdownTogglableDetails() {
       </div>
       {/** Code snippet, was: bg-slate-400 */}
       <pre className="p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700">
-        <Button variant="ghost" size="icon">
-          <Copy />
-        </Button>
+        <CopyButton />
         <br />
         {JSON.parse(JSON.stringify(toggleDetails.snippet))}
       </pre>
     </article>
   );
 }
+
+const CopyButton = () => (
+  <Button variant="ghost" size="icon">
+    <Copy />
+  </Button>
+);
