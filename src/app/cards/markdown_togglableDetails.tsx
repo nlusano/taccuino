@@ -1,28 +1,40 @@
 import { GitHubMarkdown } from "@/components/data/markdown";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+} from "@/components/ui/card";
 import { Copy } from "lucide-react";
+
+const CopyButton = () => (
+  // TODO make reusable
+  <Button
+    variant="ghost"
+    size="icon"
+    className="absolute bg-slate-600 -right-2 top-10 rounded-xl"
+  >
+    <Copy />
+  </Button>
+);
 
 export default function MarkdownTogglableDetails() {
   const { toggleDetails } = GitHubMarkdown.content;
 
   return (
-    <article>
-      {/* Code snippet: bg-slate-400 text-slate-700 */}
-      <div className="rounded-sm p-1 mb-2 font-semibold text-md w-40 ">
+    <Card className="">
+      <CardHeader className="rounded-sm p-1 mb-2 font-semibold text-xl">
         {toggleDetails.title.toUpperCase()}
-      </div>
-      {/** Code snippet, was: bg-slate-400 */}
-      <pre className="p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700">
-        <CopyButton />
-        <br />
-        {JSON.parse(JSON.stringify(toggleDetails.snippet))}
-      </pre>
-    </article>
+        <CardAction>
+          <CopyButton />
+        </CardAction>
+      </CardHeader>
+      <CardContent>
+        <pre className="p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700">
+          {JSON.parse(JSON.stringify(toggleDetails.snippet))}
+        </pre>
+      </CardContent>
+    </Card>
   );
 }
-
-const CopyButton = () => (
-  <Button variant="ghost" size="icon">
-    <Copy />
-  </Button>
-);
