@@ -9,7 +9,11 @@ export default function MarkdownCard() {
       <CardHeader>
         <h3 className="mb-2 text-3xl font-semibold">{title}</h3>
       </CardHeader>
-      <CardContent className="p-2 rounded-md text-slate-600 bg-gray-300">
+      {/* Card content
+      was: text-slate-600 bg-gray-300;
+      then changed to: bg-muted-foreground.
+      bg-slate-700 is also an option */}
+      <CardContent className="p-2 rounded-md">
         <MarkdownTogglableDetails />
       </CardContent>
     </Card>
