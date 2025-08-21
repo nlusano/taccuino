@@ -11,7 +11,7 @@ const config: Config = {
   collectCoverage: true,
   // collectCoverageFrom: undefined, // An array of glob patterns indicating a set of files for which coverage information should be collected
   coverageDirectory: "coverage",
-  coverageProvider: 'v8',
+  coverageProvider: 'babel',
   moduleNameMapper: {
     // ...
     '^@/components/(.*)$': '<rootDir>/components/$1',
