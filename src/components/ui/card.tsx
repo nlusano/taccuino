@@ -9,8 +9,10 @@ function CopyButton(props: React.ComponentProps<"button">) {
     <Button
       variant="ghost"
       size="icon"
-      className="absolute bg-slate-300 rounded-xl"
-      {...props}
+      className={cn(
+        "absolute bg-slate-300 rounded-md text-gray-200 border-gray-200 hover:text-slate-500 hover:border-slate-400 hover:shadow-slate-400 hover:shadow",
+        props.className
+      )}
     >
       <Copy />
     </Button>
