@@ -1,6 +1,18 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { Copy } from "lucide-react";
+import { Button } from "./button";
+
+const CopyButton = () => (
+  <Button
+    variant="ghost"
+    size="icon"
+    className="absolute bg-slate-300 rounded-xl"
+  >
+    <Copy />
+  </Button>
+)
 
 function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
   return (
@@ -12,6 +24,7 @@ function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { co
       )}
       {...props}
     >
+<CopyButton />
       {JSON.parse(JSON.stringify(props.code))}
     </pre>
   );

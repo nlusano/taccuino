@@ -1,23 +1,10 @@
-import { GitHubMarkdown } from "@/components/data/markdown";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
   CardContent,
   CardHeader,
 } from "@/components/ui/card";
-import { Copy } from "lucide-react";
-
-export const CopyButton = () => (
-  // TODO make reusable
-  <Button
-    variant="ghost"
-    size="icon"
-    className="absolute bg-slate-600 rounded-xl"
-  >
-    <Copy />
-  </Button>
-);
+import { GitHubMarkdown } from "@/components/data/markdown";
 import { CodeSnippet } from "@/components/ui/card";
 
 export default function MarkdownTogglableDetails() {
