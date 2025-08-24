@@ -8,7 +8,7 @@ describe('MarkdownTogglableDetails', () => {
   })
 
   it('renders the helper snippet title', () => {
-    const title = screen.getByRole('heading', { level: 3 })
+    const title = screen.getByTestId("card-header")
 
     expect(title).toBeInTheDocument()
     expect(title).toBeVisible()
