@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: any }) {
+function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
   return (
     <pre
       data-testid="code-snippet"
