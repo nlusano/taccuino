@@ -1,0 +1,25 @@
+name: Run tests
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Run tests'
+        # # Default value if no value is explicitly provided
+        # default: 'World'
+        # Input has to be provided for the workflow to run
+        required: true
+        # The data type of the input
+        # type: string
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ inputs.name }}"
