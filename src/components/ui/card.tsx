@@ -110,12 +110,13 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export {
-  CodeSnippet,
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardAction,
+    Card,
+    CardAction,
+CardContent,
   CardDescription,
-  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CodeSnippet
 };
+
