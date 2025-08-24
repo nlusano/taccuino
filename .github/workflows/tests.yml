@@ -8,15 +8,6 @@ push:
 pull_requests:
   branches: [development]
 workflow_dispatch:
-    inputs:
-      name:
-        description: 'Run tests'
-        # # Default value if no value is explicitly provided
-        # default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-        # The data type of the input
-        # type: string
 
 jobs:
   run-tests:
