@@ -4,27 +4,32 @@ import { cn } from "@/lib/utils";
 import { Copy } from "lucide-react";
 import { Button } from "./button";
 
-const CopyButton = () => (
-  <Button
-    variant="ghost"
-    size="icon"
-    className="absolute bg-slate-300 rounded-xl"
-  >
-    <Copy />
-  </Button>
-)
+function CopyButton(props: React.ComponentProps<"button">) {
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      className="absolute bg-slate-300 rounded-xl"
+      {...props}
+    >
+      <Copy />
+    </Button>
+  )
+}
 
 function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
   return (
     <pre
       data-testid="code-snippet"
       className={cn(
-        "font-mono text-sm",
+        "p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
         className
       )}
       {...props}
     >
-<CopyButton />
+      <CardAction className="mr-9">
+        <CopyButton />
+      </CardAction>
       {JSON.parse(JSON.stringify(props.code))}
     </pre>
   );
@@ -110,9 +115,9 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export {
-    Card,
-    CardAction,
-CardContent,
+  Card,
+  CardAction,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
