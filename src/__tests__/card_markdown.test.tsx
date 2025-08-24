@@ -1,24 +1,24 @@
+import MarkdownTogglableDetails from '@/app/cards/markdown_togglableDetails'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import MarkdownCard from '../app/cards/markdown'
 
 describe('MarkdownTogglableDetails', () => {
   beforeEach(() => {
-    render(<MarkdownCard />)
+    render(<MarkdownTogglableDetails />)
   })
 
-  it('renders a header', () => {
-    const header = screen.getAllByTestId('card-header')
+  it('renders the helper snippet title', () => {
+    const title = screen.getByRole('heading', { level: 3 })
 
-    expect(header[0]).toBeInTheDocument()
-    expect(header[0]).toBeVisible()
-    expect(header[0].textContent).toBe("Markdown helper")
+    expect(title).toBeInTheDocument()
+    expect(title).toBeVisible()
+    expect(title.textContent).toBe("TOGGLABLE DETAILS")
   })
-  it('renders content', () => {
-    const content = screen.getAllByTestId('card-content')
+  it('renders the code snippet', () => {
+    const firstCodeSnippet = screen.getByTestId('markdown-details-code-snippet')
 
-    expect(content[0]).toBeInTheDocument()
-    expect(content[0]).toBeVisible()
-    expect(content[0].textContent).toContain("TOGGLABLE DETAILS")
+    expect(firstCodeSnippet).toBeInTheDocument()
+    expect(firstCodeSnippet).toBeVisible()
+    expect(firstCodeSnippet.textContent).toMatch(/details|summary/)
   })
 })

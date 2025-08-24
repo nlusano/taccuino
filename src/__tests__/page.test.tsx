@@ -3,13 +3,13 @@ import { render, screen } from '@testing-library/react'
 import Home from '../app/page'
 
 describe('Page', () => {
-  it('renders a heading', () => {
+  it('renders a title', () => {
     render(<Home />)
 
-    const heading = screen.getByRole('heading', { level: 1 })
+    const title = screen.getByRole('heading', { level: 1 })
 
-    expect(heading).toBeInTheDocument()
-    expect(heading).toBeVisible()
-    expect(heading.textContent).toBe("Taccuino")
+    expect(title).toBeInTheDocument()
+    expect(title).toBeVisible()
+    expect(title.textContent).toBe("Taccuino")
   })
 })
