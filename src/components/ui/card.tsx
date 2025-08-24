@@ -2,9 +2,25 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
+  return (
+    <pre
+      data-testid="code-snippet"
+      className={cn(
+        "font-mono text-sm",
+        className
+      )}
+      {...props}
+    >
+      {JSON.parse(JSON.stringify(props.code))}
+    </pre>
+  );
+}
+
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <article
+    <div
+      data-testid="card"
       data-slot="card"
       className={cn("rounded-lg bg-slate-600 p-6 text-slate-300", className)}
       {...props}
@@ -15,6 +31,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-header"
       data-slot="card-header"
       className={cn(
         "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
@@ -61,6 +78,7 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-content"
       data-slot="card-content"
       className={cn("", className)} // px-1
       {...props}
@@ -79,6 +97,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export {
+  CodeSnippet,
   Card,
   CardHeader,
   CardFooter,

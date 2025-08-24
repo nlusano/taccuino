@@ -13,7 +13,7 @@ export default function MarkdownCard() {
       was: text-slate-600 bg-gray-300;
       then changed to: bg-muted-foreground.
       bg-slate-700 is also an option */}
-      <CardContent className="rounded-sm">
+      <CardContent data-testid="markdown-card-content" className="rounded-sm">
         <MarkdownTogglableDetails />
       </CardContent>
     </Card>
