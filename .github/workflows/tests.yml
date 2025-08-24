@@ -3,9 +3,7 @@ name: Run tests
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  push:
-  pull_requests:
-    types: [opened, synchronize, reopened]
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -23,6 +21,7 @@ jobs:
     - name: Lint
       run: |
         yarn lint
+        yarn next telemetry disable
 
     - name: Run tests
       run: |
