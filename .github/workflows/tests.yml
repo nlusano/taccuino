@@ -3,9 +3,9 @@ name: Run tests
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-push:
-pull_requests:
-workflow_dispatch:
+  push:
+  pull_requests:
+  workflow_dispatch:
 
 jobs:
   run-tests:
