@@ -1,16 +1,15 @@
 import { GitHubMarkdown } from "@/components/data/markdown";
+import { CodeSnippet } from "@/components/ui/card";
 
 export default function MarkdownTogglableDetails() {
   const { toggleDetails } = GitHubMarkdown.content;
 
   return (
-    <div>
-      <div className="rounded-sm p-1 mb-2 font-semibold text-md bg-slate-400 text-slate-700 w-40">
+    <div data-testid="helper-snippet">
+      <h3 data-testid="helper-snippet-title" className="rounded-sm p-1 mb-2 font-semibold text-md bg-slate-400 text-slate-700 w-40">
         {toggleDetails.title.toUpperCase()}
-      </div>
-      <pre className="font-mono text-sm">
-        {JSON.parse(JSON.stringify(toggleDetails.snippet))}
-      </pre>
+      </h3>
+      <CodeSnippet data-testid="markdown-details-code-snippet" code={toggleDetails.snippet} />
     </div>
   );
 }
