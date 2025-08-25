@@ -7,6 +7,7 @@ import { Button } from "./button";
 function CopyButton(props: React.ComponentProps<"button">) {
   return (
     <Button
+      data-testid="copy-button"
       variant="ghost"
       size="icon"
       className={cn(
@@ -22,7 +23,6 @@ function CopyButton(props: React.ComponentProps<"button">) {
 function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
   return (
     <pre
-      data-testid="code-snippet"
       className={cn(
         "p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
         className
@@ -65,6 +65,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-title"
       data-slot="card-title"
       className={cn("leading-none font-semibold", className)}
       {...props}
@@ -85,6 +86,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-action"
       data-slot="card-action"
       className={cn(
         "col-start-2 row-span-2 row-start-1 self-start justify-self-end",

@@ -15,10 +15,11 @@ describe('MarkdownCard', () => {
   })
 
   it('renders a title in the card header', () => {
-    const title = screen.getByRole('heading', { level: 3, name: "Markdown helper" })
+    const title = screen.getByTestId("card-title")
 
     expect(title).toBeInTheDocument()
     expect(title).toBeVisible()
+    expect(title.textContent).toBe("Markdown helper")
   })
 
   it('renders content', () => {
