@@ -10,8 +10,9 @@ const config: Config = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
+    "src/app/**/*.{ts,tsx}",
     "!src/components/ui/**", // ignore boilerplate components
+    "!src/app/layout.tsx",
   ],
   coverageDirectory: "coverage",
   coverageProvider: 'babel',
