@@ -27,6 +27,7 @@ function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { co
         "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
         className
       )}
+      data-testid="code-snippet"
       {...props}
     >
       <CardAction className="mr-9">

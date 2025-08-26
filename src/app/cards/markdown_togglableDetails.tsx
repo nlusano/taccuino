@@ -13,10 +13,9 @@ export default function MarkdownTogglableDetails() {
       <CardHeader className="rounded-sm font-semibold text-xs">
         {toggleDetails.title.toUpperCase()}
       </CardHeader>
-      <CodeSnippet
-        data-testid="markdown-details-code-snippet"
-        code={toggleDetails.snippet}
-      />
+      <CardContent className="rounded-sm">
+        <CodeSnippet code={toggleDetails.snippet} />
+      </CardContent>
     </CardContent>
   );
 }
