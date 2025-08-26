@@ -15,10 +15,14 @@ describe('Page', () => {
     expect(title.textContent).toBe("Taccuino")
   })
 
-  it('renders content', () => {
-    const content = screen.getByTestId('page-content')
+  it('renders content with cards', () => {
+    // const cards = screen.getAllByTestId('card')
+    const cards = screen.getAllByRole('card')
 
-    expect(content).toBeInTheDocument()
-    expect(content).toBeVisible()
+    expect(cards).toHaveLength(1)
+    cards.map((card) => {
+      expect(card).toBeInTheDocument()
+      expect(card).toBeVisible()
+    })
   })
 })
