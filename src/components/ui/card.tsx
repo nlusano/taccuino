@@ -11,7 +11,7 @@ function CopyButton(props: React.ComponentProps<"button">) {
       variant="ghost"
       size="icon"
       className={cn(
-        "absolute bg-slate-300 rounded-md text-gray-200 border-gray-200 hover:text-slate-500 hover:border-slate-400 hover:shadow-slate-400 hover:shadow",
+        "copy-button absolute bg-slate-300 rounded-md text-slate-400 border-slate-400 hover:text-slate-500 hover:border-slate-400 hover:shadow-slate-400 hover:shadow",
         props.className
       )}
     >
@@ -24,7 +24,7 @@ function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { co
   return (
     <pre
       className={cn(
-        "p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
+        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
         className
       )}
       {...props}

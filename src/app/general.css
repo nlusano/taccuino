@@ -1,0 +1,10 @@
+.code-snippet .copy-button {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+.code-snippet:hover .copy-button {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,4 +1,5 @@
 import MarkdownCard from "./cards/markdown";
+import "./general.css"
 
 export default function Home() {
   return (
