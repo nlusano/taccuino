@@ -32,6 +32,7 @@ describe('MarkdownTogglableDetails', () => {
     expect(cardAction).toBeVisible()
 
     expect(copyButton).toBeInTheDocument()
-    expect(copyButton).toBeVisible()
+    // expect(copyButton).not.toBeVisible() // cannot expect not.toBeVisible, cf. https://github.com/nlusano/taccuino/issues/27#issuecomment-3225283589
+    // expect(copyButton).toHaveAttribute("visiblity", "hidden") // does not work
   })
 })
