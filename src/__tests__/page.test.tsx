@@ -15,8 +15,7 @@ describe('Page', () => {
     expect(title.textContent).toBe("Taccuino")
   })
 
-  it('renders content with cards', () => {
-    // const cards = screen.getAllByTestId('card')
+  it('renders cards', () => {
     const cards = screen.getAllByRole('card')
 
     expect(cards).toHaveLength(1)

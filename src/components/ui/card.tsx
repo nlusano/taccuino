@@ -42,6 +42,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-testid="card"
+      role="card"
       data-slot="card"
       className={cn("rounded-lg bg-slate-600 p-6 text-slate-300", className)}
       {...props}
