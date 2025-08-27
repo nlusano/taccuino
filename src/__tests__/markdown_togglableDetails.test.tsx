@@ -1,6 +1,6 @@
 import MarkdownTogglableDetails from '@/app/cards/markdown_togglableDetails'
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 describe('MarkdownTogglableDetails', () => {
   beforeEach(() => {
@@ -23,21 +23,16 @@ describe('MarkdownTogglableDetails', () => {
     expect(codeSnippet.textContent).toMatch(/details|summary/)
   })
 
-  it('has a copy button', () => {
-    const cardAction = screen.getByTestId('card-action')
-    // const copyButton = screen.getByTestId('copy-button')
-    const copyButton = screen.getByRole('copy-button')
+  it('has a copy button only visible on hover on the code snippet', () => {
+    const codeSnippet = screen.getByTestId('markdown-details-code-snippet')
+    const copyButton = screen.getByTestId('copy-button')
 
+    expect(copyButton.blur()).toBeUndefined()
 
-    expect(cardAction).toBeInTheDocument()
-    expect(cardAction).toBeVisible()
+    fireEvent.mouseOver(codeSnippet);
+    waitFor(() => expect(copyButton).toBeVisible())
 
-    expect(copyButton).toBeInTheDocument()
-    // expect(copyButton).toHaveAttribute("aria-hidden", "true")
-    // expect(copyButton).toHaveStyle(`
-    //     visibility: visible; // not what I see with my eyes, cannot trust this test
-    //   `);
-    // expect(within(copyButton).getByTestId('copy-icon')).toHaveAttribute("aria-hidden", "true")
-    // expect(copyButton).not.toBeVisible() // cannot expect not.toBeVisible, cf. https://github.com/nlusano/taccuino/issues/27#issuecomment-3225283589
+    fireEvent.mouseLeave(codeSnippet)
+    waitFor(() => expect(copyButton).toBeUndefined())
   })
 })
