@@ -23,16 +23,21 @@ describe('MarkdownTogglableDetails', () => {
     expect(codeSnippet.textContent).toMatch(/details|summary/)
   })
 
-  it('renders the copy button', () => {
+  it('has a copy button', () => {
     const cardAction = screen.getByTestId('card-action')
-    const copyButton = screen.getByTestId('copy-button')
+    // const copyButton = screen.getByTestId('copy-button')
+    const copyButton = screen.getByRole('copy-button')
 
 
     expect(cardAction).toBeInTheDocument()
     expect(cardAction).toBeVisible()
 
     expect(copyButton).toBeInTheDocument()
+    // expect(copyButton).toHaveAttribute("aria-hidden", "true")
+    // expect(copyButton).toHaveStyle(`
+    //     visibility: visible; // not what I see with my eyes, cannot trust this test
+    //   `);
+    // expect(within(copyButton).getByTestId('copy-icon')).toHaveAttribute("aria-hidden", "true")
     // expect(copyButton).not.toBeVisible() // cannot expect not.toBeVisible, cf. https://github.com/nlusano/taccuino/issues/27#issuecomment-3225283589
-    // expect(copyButton).toHaveAttribute("visiblity", "hidden") // does not work
   })
 })
