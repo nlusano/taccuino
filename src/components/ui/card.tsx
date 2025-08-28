@@ -1,42 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Copy } from "lucide-react";
-import { Button } from "./button";
-
-function CopyButton(props: React.ComponentProps<"button">) {
-  return (
-    <Button
-      data-testid="copy-button"
-      variant="ghost"
-      size="icon"
-      className={cn(
-        "copy-button absolute bg-slate-300 rounded-md text-slate-400 border-slate-400 hover:text-slate-500 hover:border-slate-400 hover:shadow-slate-400 hover:shadow",
-        props.className
-      )}
-    >
-      <Copy />
-    </Button>
-  )
-}
-
-function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
-  return (
-    <pre
-      className={cn(
-        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
-        className
-      )}
-      data-testid="code-snippet"
-      {...props}
-    >
-      <CardAction className="mr-9">
-        <CopyButton />
-      </CardAction>
-      {JSON.parse(JSON.stringify(props.code))}
-    </pre>
-  );
-}
+import { CopyButton } from "./button_copy";
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -120,6 +85,24 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
+  return (
+    <pre
+      className={cn(
+        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
+        className
+      )}
+      data-testid="code-snippet"
+      {...props}
+    >
+      <CardAction className="mr-9">
+        <CopyButton code={props.code} />
+      </CardAction>
+      {JSON.parse(JSON.stringify(props.code))}
+    </pre>
+  );
+}
+
 export {
   Card,
   CardAction,
@@ -128,6 +111,6 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
-  CodeSnippet
+  CodeSnippet,
 };
 
