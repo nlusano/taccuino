@@ -96,7 +96,7 @@ function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { co
       {...props}
     >
       <CardAction className="mr-9">
-        <CopyButton code={props.code} />
+        <CopyButton text={props.code} />
       </CardAction>
       {JSON.parse(JSON.stringify(props.code))}
     </pre>

@@ -6,7 +6,7 @@ import { CheckCheck, Copy } from "lucide-react";
 import { Button } from "./button";
 import { useState } from "react";
 
-function CopyButton(props: React.ComponentProps<"button"> & { code: string }) {
+function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClick = async (text: string) => {
