@@ -5,7 +5,7 @@ import MarkdownTogglableDetails from "./markdown_togglableDetails";
 export default function MarkdownCard() {
   const { title } = GitHubMarkdown;
   return (
-    <Card data-testid="markdown-card" className="pt-3 shadow-md">
+    <Card data-testid="markdown-card" className="p-3.5 shadow-md">
       <CardHeader>
         <CardTitle className="text-3xl font-semibold">{title}</CardTitle>
       </CardHeader>
