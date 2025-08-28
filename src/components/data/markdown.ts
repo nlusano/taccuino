@@ -21,5 +21,13 @@ export const GitHubMarkdown = {
 </details>`,
     },
   },
-  labels: ["markdown", ".md"],
+  labels: [
+    {
+      display: "markdown",
+      name: "markdown"
+    },
+    {
+      display: ".md",
+      name: "markdown"
+    }],
 };
