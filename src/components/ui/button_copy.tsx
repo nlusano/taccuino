@@ -28,7 +28,7 @@ function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
         props.className
       )}
       {...props}
-      onClick={() => handleClick(props.code)}
+      onClick={() => handleClick(props.text)}
     >
       {isCopied ? <CheckCheck /> : <Copy />}
     </Button>
