@@ -5,5 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 export function copyTextToClipboard(code: string) {
-  return window.navigator.clipboard.writeText(code);
+  return window.navigator.clipboard.writeText(code).then(_ => {
+    console.log(`copied ${code} successfully!`)
+  });
 }
