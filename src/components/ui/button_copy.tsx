@@ -2,10 +2,21 @@
 import * as React from "react";
 
 import { cn, copyTextToClipboard } from "@/lib/utils";
-import { Copy } from "lucide-react";
+import { CheckCheck, Copy } from "lucide-react";
 import { Button } from "./button";
+import { useState } from "react";
 
 function CopyButton(props: React.ComponentProps<"button"> & { code: string }) {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleClick = async (text: string) => {
+    setIsCopied(true);
+    copyTextToClipboard(text)
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1000);
+
+  }
 
   return (
     <Button
@@ -17,9 +28,9 @@ function CopyButton(props: React.ComponentProps<"button"> & { code: string }) {
         props.className
       )}
       {...props}
-      onClick={() => copyTextToClipboard(props.code)}
+      onClick={() => handleClick(props.code)}
     >
-      <Copy />
+      {isCopied ? <CheckCheck /> : <Copy />}
     </Button>
   )
 }
