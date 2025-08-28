@@ -1,31 +1,15 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-
-function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
-  return (
-    <pre
-      data-testid="code-snippet"
-      className={cn(
-        "font-mono text-sm",
-        className
-      )}
-      {...props}
-    >
-      {JSON.parse(JSON.stringify(props.code))}
-    </pre>
-  );
-}
+import { CopyButton } from "./button_copy";
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-testid="card"
+      role="card"
       data-slot="card"
-      className={cn(
-        "rounded-lg bg-slate-600 p-6 text-slate-300 shadow",
-        className
-      )}
+      className={cn("rounded-lg bg-slate-600 p-6 text-slate-300", className)}
       {...props}
     />
   );
@@ -48,6 +32,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-title"
       data-slot="card-title"
       className={cn("leading-none font-semibold", className)}
       {...props}
@@ -68,6 +53,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-testid="card-action"
       data-slot="card-action"
       className={cn(
         "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
@@ -99,13 +85,32 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
+  return (
+    <pre
+      className={cn(
+        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
+        className
+      )}
+      data-testid="code-snippet"
+      {...props}
+    >
+      <CardAction className="mr-9">
+        <CopyButton text={props.code} />
+      </CardAction>
+      {JSON.parse(JSON.stringify(props.code))}
+    </pre>
+  );
+}
+
 export {
-  CodeSnippet,
   Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
   CardAction,
-  CardDescription,
   CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CodeSnippet,
 };
+
