@@ -30,7 +30,9 @@ function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
       {...props}
       onClick={() => handleClick(props.text)}
     >
-      {isCopied ? <CheckCheck /> : <Copy />}
+      {isCopied ?
+        <CheckCheck data-testid="check-check-icon" /> : <Copy data-testid="copy-icon" />
+      }
     </Button>
   )
 }
