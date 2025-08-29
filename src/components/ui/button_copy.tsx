@@ -9,7 +9,7 @@ import { useState } from "react";
 function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleClick = async (text: string) => {
+  const handleClick = (text: string) => {
     setIsCopied(true);
     copyTextToClipboard(text)
     setTimeout(() => {
