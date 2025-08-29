@@ -26,8 +26,9 @@ describe('CopyButton', () => {
 
     fireEvent.click(copyButton);
 
-    expect(copyIcon).not.toBeVisible()
-    waitFor(() => expect(checkCheckIcon).toBeVisible())
+        waitFor(() => expect(checkCheckIcon).toBeVisible())
+expect(copyIcon).not.toBeVisible()
+
 
     waitFor(() => expect(copyIcon).toBeVisible())
     expect(checkCheckIcon).toBeNull()
