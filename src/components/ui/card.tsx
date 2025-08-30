@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { CopyButton } from "./button_copy";
 import { FilterByLabelButton } from "./button_filterByLabel";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function Card({ className, ...props }: React.ComponentProps<"div"> & { label: string }) {
   return (
     <div
       data-testid="card"

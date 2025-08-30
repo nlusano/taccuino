@@ -5,11 +5,11 @@ import {
   CodeSnippet
 } from "@/components/ui/card";
 
-export default function MarkdownTogglableDetails() {
+export default function MarkdownTogglableDetails({ id }: { id: string }) {
   const { toggleDetails } = GitHubMarkdown.content;
 
   return (
-    <CardContent>
+    <CardContent id={id}>
       <CardHeader className="rounded-sm font-semibold text-xs">
         {toggleDetails.title.toUpperCase()}
       </CardHeader>
