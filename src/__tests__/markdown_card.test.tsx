@@ -4,7 +4,16 @@ import MarkdownCard from '../app/cards/markdown'
 
 describe('MarkdownCard', () => {
   beforeEach(() => {
-    render(<MarkdownCard />)
+    const fixtureData = {
+      title: "Test title",
+      labels: [
+        {
+          display: "",
+          name: ""
+        }
+      ]
+    };
+    render(<MarkdownCard title={fixtureData.title} labels={fixtureData.labels} />)
   })
 
   it('renders a card', () => {
@@ -19,7 +28,7 @@ describe('MarkdownCard', () => {
 
     expect(title).toBeInTheDocument()
     expect(title).toBeVisible()
-    expect(title.textContent).toBe("Markdown helper")
+    expect(title.textContent).toBe("Test title")
   })
 
   it('renders content', () => {
