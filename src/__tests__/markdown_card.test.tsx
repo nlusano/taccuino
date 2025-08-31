@@ -6,6 +6,7 @@ describe('MarkdownCard isVisible is true', () => {
   beforeEach(() => {
     render(<MarkdownCard isVisible={true} />)
   })
+
   it('renders a card', () => {
     const card = screen.getByTestId('markdown-card')
 
