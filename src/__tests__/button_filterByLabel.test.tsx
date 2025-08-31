@@ -45,6 +45,7 @@ describe('FilterByLabelButton', () => {
     expect(filterButton).toBeInTheDocument()
     expect(filterButton).toBeVisible()
     expect(filterButton.textContent).toBe("test display")
+    expect(filterButton).toHaveProperty("name", "test name")
 
     expect(filterButton.className).toMatch(/hover:bg-rose-950/gm)
     expect(filterButton.className).not.toMatch(/hover:bg-gray-700/gm)
