@@ -5,7 +5,7 @@ import "./general.css";
 import Labels from "./labels";
 
 export default function Home({ searchParams }: any) {
-  const { label }: { label: string } = React.use(searchParams)
+  const { label }: { label: string } = searchParams || {}
   const noLabelSelected = label === undefined
   const isMarkdownVisible = noLabelSelected || label === "markdown"
   const isSqlVisible = noLabelSelected || label === "sql"
