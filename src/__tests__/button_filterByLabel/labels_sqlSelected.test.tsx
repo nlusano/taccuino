@@ -9,7 +9,7 @@ jest.mock('next/navigation', () => ({
 import Labels from '@/app/labels';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { labels } from '../__testcases__/labels';
+import { labels } from '../fixtureData/labels';
 
 describe("Labels when sql label is selected", () => {
   Object.entries(labels.selected.sql).map(([buttonName, { href, className }]: [string, { href: string, className: string }], index: number) => {
