@@ -39,7 +39,7 @@ export default function Labels() {
               pathname: "/",
               query: toggleQuery("label", label.name)
             }}
-            data-testid="filter-button"
+            data-testid="filter-nav-link"
             className={label.name === active ? "active" : ""}
           >
             <FilterByLabelButton label={{
