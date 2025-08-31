@@ -6,10 +6,11 @@ jest.mock('next/navigation', () => ({
 }));
 
 'use client';
-import Labels from '@/app/labels';
+
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { labels } from '../fixtureData/labels';
+import Labels from '@/app/labels';
 
 describe("Labels when markdown label is selected", () => {
   Object.entries(labels.selected.markdown).map(([buttonName, { href, className }]: [string, { href: string, className: string }], index: number) => {
