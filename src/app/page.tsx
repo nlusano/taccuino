@@ -5,10 +5,10 @@ import "./general.css";
 import Labels from "./labels";
 
 export default function Home({ searchParams }: any) {
-  const searchParameters: { label: string } = React.use(searchParams)
-  const noLabelSelected = searchParameters.label === undefined
-  const isMarkdownVisible = noLabelSelected || searchParameters.label === "markdown"
-  const isSqlVisible = noLabelSelected || searchParameters.label === "sql"
+  const { label }: { label: string } = React.use(searchParams)
+  const noLabelSelected = label === undefined
+  const isMarkdownVisible = noLabelSelected || label === "markdown"
+  const isSqlVisible = noLabelSelected || label === "sql"
 
   return (
     <main className="min-h-screen bg-slate-100 pt-20 text-slate-900">
