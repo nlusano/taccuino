@@ -1,0 +1,42 @@
+jest.mock('next/navigation', () => ({
+  useSearchParams: () => ({
+    get: (key: string) => (key === 'label' ? 'markdown' : null),
+    [Symbol.iterator]: function* () { yield ['label', 'markdown']; }
+  })
+}));
+
+'use client';
+import Home from '@/app/page';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+
+describe("Page when markdown label is selected", () => {
+  beforeEach(() => {
+    const labelMock = {
+      label: "markdown"
+    }
+
+    render(<Home searchParams={labelMock} />)
+  })
+
+  it('renders a title', () => {
+    const title = screen.getByRole('heading', { level: 1 })
+
+    expect(title).toBeInTheDocument()
+    expect(title).toBeVisible()
+    expect(title.textContent).toBe("Taccuino")
+  })
+
+  it('renders only the markdown card', () => {
+    const cards = screen.getAllByRole('card')
+
+    expect(cards).toHaveLength(1)
+    cards.map((card) => {
+      expect(card).toBeInTheDocument()
+      expect(card).toBeVisible()
+
+      expect(card.textContent).toMatch(/markdown/gmi)
+      expect(card.textContent).not.toMatch(/sql/gmi)
+    })
+  })
+})
