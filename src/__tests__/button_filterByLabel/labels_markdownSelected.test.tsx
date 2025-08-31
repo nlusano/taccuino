@@ -1,7 +1,7 @@
 jest.mock('next/navigation', () => ({
   useSearchParams: () => ({
-    get: (key: string) => (key === 'label' ? 'sql' : null),
-    [Symbol.iterator]: function* () { yield ['label', 'sql']; }
+    get: (key: string) => (key === 'label' ? 'markdown' : null),
+    [Symbol.iterator]: function* () { yield ['label', 'markdown']; }
   })
 }));
 
@@ -9,12 +9,12 @@ jest.mock('next/navigation', () => ({
 import Labels from '@/app/labels';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { labels } from '../testcases/labels';
+import { labels } from '../__testcases__/labels';
 
-describe("Labels when sql label is selected", () => {
-  Object.entries(labels.selected.sql).map(([buttonName, { href, className }]: [string, { href: string, className: string }], index: number) => {
-    const testNamePartial = buttonName === "sql" ? "the sql button should toggle/remove the filter"
-      : buttonName === "markdown" ? "the markdown button should change the filter"
+describe("Labels when markdown label is selected", () => {
+  Object.entries(labels.selected.markdown).map(([buttonName, { href, className }]: [string, { href: string, className: string }], index: number) => {
+    const testNamePartial = buttonName === "markdown" ? "the markdown button should toggle/remove the filter"
+      : buttonName === "sql" ? "the sql button should change the filter"
         : ""
 
     it(`${testNamePartial} with href: ${href}`, () => {
