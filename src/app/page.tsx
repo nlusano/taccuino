@@ -21,7 +21,7 @@ export default function Home({ searchParams }: any) {
           <div id="Snippet 2" className="grid grid-cols-1 gap-6 md:grid-cols-1">
             < MarkdownCard isVisible={isMarkdownVisible} />
             {isSqlVisible ?
-              <div className="rounded-lg bg-slate-600 p-6 text-slate-300">
+              <div role="card" className="rounded-lg bg-slate-600 p-6 text-slate-300">
                 <h3 className="mb-2 text-xl font-semibold">Test SQL helper</h3>
                 <p>Test</p>
               </div>
