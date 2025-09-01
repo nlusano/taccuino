@@ -20,7 +20,7 @@ const config: Config = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
   },
   testEnvironment: 'jsdom',
-testPathIgnorePatterns: [
+  testPathIgnorePatterns: [
     "src/__tests__/fixtureData/labels.ts", // ignore fixture data
   ]
 }
