@@ -7,13 +7,13 @@ jest.mock('next/navigation', () => ({
 
 import Home from '@/app/page';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 
 describe("Page when no label is selected", () => {
-  beforeEach(() => {
-    const labelMock = {}
-
-    render(<Home searchParams={labelMock} />)
+  beforeEach(async () => {
+    await act(async () => {
+      render(<Home searchParams={Promise.resolve({} as any)} />)
+    })
   })
 
   it('renders a title', () => {
