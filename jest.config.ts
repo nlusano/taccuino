@@ -20,6 +20,9 @@ const config: Config = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
   },
   testEnvironment: 'jsdom',
+testPathIgnorePatterns: [
+    "src/__tests__/fixtureData/labels.ts", // ignore fixture data
+  ]
 }
 
 export default createJestConfig(config)
