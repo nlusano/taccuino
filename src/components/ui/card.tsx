@@ -86,7 +86,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardLabels({ className, ...props }: React.ComponentProps<"div"> & {
+function CardLabels({ ...props }: React.ComponentProps<"div"> & {
   labels: {
     display: string,
     name: string
