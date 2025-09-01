@@ -2,7 +2,6 @@
 import { FilterByLabelButton } from "@/components/ui/button_filterByLabel";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import "./general.css";
 
 export default function Labels() {
   const params = useSearchParams()
