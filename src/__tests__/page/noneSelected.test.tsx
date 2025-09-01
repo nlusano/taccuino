@@ -12,6 +12,7 @@ import { act, render, screen } from '@testing-library/react';
 describe("Page when no label is selected", () => {
   beforeEach(async () => {
     await act(async () => {
+      /* eslint-disable @typescript-eslint/no-explicit-any */
       render(<Home searchParams={Promise.resolve({} as any)} />)
     })
   })
