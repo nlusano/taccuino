@@ -1,7 +1,14 @@
+import React from "react";
 import MarkdownCard from "./cards/markdown";
-import "./general.css"
+import "./general.css";
+import Labels from "./labels";
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: Promise<{ label: string }> }) {
+  const { label }: { label: string } = React.use(searchParams)
+  const noLabelSelected = label === undefined
+  const isMarkdownVisible = noLabelSelected || label === "markdown"
+  const isSqlVisible = noLabelSelected || label === "sql"
+
   return (
     <main className="min-h-screen bg-slate-100 pt-20 text-slate-900">
       <div className="mx-auto flex max-w-4xl flex-col gap-12 px-6">
@@ -9,12 +16,16 @@ export default function Home() {
           <h1 className="text-6xl text-slate-700 font-semibold">Taccuino</h1>
         </div>
         <div id="snippets" data-testid="page-content">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <MarkdownCard />
-            <div className="rounded-lg bg-slate-600 p-6 text-slate-300">
-              <h3 className="mb-2 text-xl font-semibold">Snippet 2</h3>
-              <p>Snippet content.</p>
-            </div>
+          <Labels />
+          <div id="Snippet 2" className="grid grid-cols-1 gap-6 md:grid-cols-1">
+            < MarkdownCard isVisible={isMarkdownVisible} />
+            {isSqlVisible ?
+              <div role="card" className="rounded-lg bg-slate-600 p-6 text-slate-300">
+                <h3 className="mb-2 text-xl font-semibold">Test SQL helper</h3>
+                <p>Test</p>
+              </div>
+              : null
+            }
           </div>
         </div>
       </div>

@@ -2,9 +2,9 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import MarkdownCard from '../app/cards/markdown'
 
-describe('MarkdownCard', () => {
+describe('MarkdownCard isVisible is true', () => {
   beforeEach(() => {
-    render(<MarkdownCard />)
+    render(<MarkdownCard isVisible={true} />)
   })
 
   it('renders a card', () => {
@@ -27,5 +27,16 @@ describe('MarkdownCard', () => {
 
     expect(content).toBeInTheDocument()
     expect(content).toBeVisible()
+  })
+})
+
+describe('MarkdownCard isVisible is false', () => {
+  it('renders nothing', () => {
+    render(<MarkdownCard isVisible={false} />)
+
+    const card = screen.queryByTestId('markdown-card')
+
+    expect(card).not.toBeInTheDocument()
+    expect(card).toBeNull()
   })
 })

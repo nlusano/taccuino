@@ -2,8 +2,9 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { CopyButton } from "./button_copy";
+import { FilterByLabelButton } from "./button_filterByLabel";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function Card({ className, ...props }: React.ComponentProps<"div"> & { label: string }) {
   return (
     <div
       data-testid="card"
@@ -85,11 +86,27 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+function CardLabels({ ...props }: React.ComponentProps<"div"> & {
+  labels: {
+    display: string,
+    name: string
+  }[]
+}) {
+  const labelsArray = props.labels
+  return <CardAction>
+    {labelsArray.map((label: {
+      display: string,
+      name: string
+    }, index: number) =>
+      <FilterByLabelButton key={index} label={label} />)}
+  </CardAction >
+}
+
 function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
   return (
     <pre
       className={cn(
-        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700",
+        "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700 ml-1 mr-1",
         className
       )}
       data-testid="code-snippet"
@@ -110,7 +127,8 @@ export {
   CardDescription,
   CardFooter,
   CardHeader,
+  CardLabels,
   CardTitle,
-  CodeSnippet,
+  CodeSnippet
 };
 
