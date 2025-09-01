@@ -5,7 +5,6 @@ jest.mock('next/navigation', () => ({
   })
 }));
 
-'use client';
 import Home from '@/app/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';

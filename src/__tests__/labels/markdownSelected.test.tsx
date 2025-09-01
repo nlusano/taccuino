@@ -5,8 +5,6 @@ jest.mock('next/navigation', () => ({
   })
 }));
 
-'use client';
-
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { labels } from '../fixtureData/labels';
