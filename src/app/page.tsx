@@ -1,11 +1,10 @@
-'use client';
 import React from "react";
 import MarkdownCard from "./cards/markdown";
 import "./general.css";
 import Labels from "./labels";
 
-export default function Home({ searchParams }: any) {
-  const { label }: { label: string } = searchParams || {}
+export default function Home({ searchParams }: { searchParams: Promise<{ label: string }> }) {
+  const { label }: { label: string } = React.use(searchParams)
   const noLabelSelected = label === undefined
   const isMarkdownVisible = noLabelSelected || label === "markdown"
   const isSqlVisible = noLabelSelected || label === "sql"
