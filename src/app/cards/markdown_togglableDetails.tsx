@@ -1,9 +1,5 @@
 import { GitHubMarkdown } from "@/components/data/markdown";
-import {
-  CardContent,
-  CardHeader,
-  CodeSnippet
-} from "@/components/ui/card";
+import { CardContent, CardHeader, CodeSnippet } from "@/components/ui/card";
 
 export default function MarkdownTogglableDetails({ id }: { id: string }) {
   const { toggleDetails } = GitHubMarkdown.content;

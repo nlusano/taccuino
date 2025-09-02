@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import * as React from "react";
 
 import { cn, copyTextToClipboard } from "@/lib/utils";
@@ -11,12 +11,11 @@ function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
 
   const handleClick = (text: string) => {
     setIsCopied(true);
-    copyTextToClipboard(text)
+    copyTextToClipboard(text);
     setTimeout(() => {
       setIsCopied(false);
     }, 1000);
-
-  }
+  };
 
   return (
     <Button
@@ -25,18 +24,18 @@ function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {
       size="icon"
       className={cn(
         "copy-button absolute bg-slate-300 rounded-md text-slate-400 border-slate-400 hover:text-slate-500 hover:border-slate-400 hover:shadow-slate-400 hover:shadow",
-        props.className
+        props.className,
       )}
       {...props}
       onClick={() => handleClick(props.text)}
     >
-      {isCopied ?
-        <CheckCheck data-testid="check-check-icon" /> : <Copy data-testid="copy-icon" />
-      }
+      {isCopied ? (
+        <CheckCheck data-testid="check-check-icon" />
+      ) : (
+        <Copy data-testid="copy-icon" />
+      )}
     </Button>
-  )
+  );
 }
 
-export {
-  CopyButton
-};
+export { CopyButton };

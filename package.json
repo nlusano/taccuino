@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && yarn next telemetry disable",
+    "prettier:check": "prettier . --check",
+    "prettier:write": "yarn exec prettier . --write",
     "test": "jest",
     "test:watch": "jest --watch"
   },
