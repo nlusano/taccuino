@@ -4,7 +4,10 @@ import { cn } from "@/lib/utils";
 import { CopyButton } from "./button_copy";
 import { FilterByLabelButton } from "./button_filterByLabel";
 
-function Card({ className, ...props }: React.ComponentProps<"div"> & { label: string }) {
+function Card({
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { label: string }) {
   return (
     <div
       data-testid="card"
@@ -23,7 +26,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-header"
       className={cn(
         "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className
+        className,
       )}
       {...props}
     />
@@ -58,7 +61,7 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-action"
       className={cn(
         "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className
+        className,
       )}
       {...props}
     />
@@ -86,28 +89,41 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardLabels({ ...props }: React.ComponentProps<"div"> & {
+function CardLabels({
+  ...props
+}: React.ComponentProps<"div"> & {
   labels: {
-    display: string,
-    name: string
-  }[]
+    display: string;
+    name: string;
+  }[];
 }) {
-  const labelsArray = props.labels
-  return <CardAction>
-    {labelsArray.map((label: {
-      display: string,
-      name: string
-    }, index: number) =>
-      <FilterByLabelButton key={index} label={label} />)}
-  </CardAction >
+  const labelsArray = props.labels;
+  return (
+    <CardAction>
+      {labelsArray.map(
+        (
+          label: {
+            display: string;
+            name: string;
+          },
+          index: number,
+        ) => (
+          <FilterByLabelButton key={index} label={label} />
+        ),
+      )}
+    </CardAction>
+  );
 }
 
-function CodeSnippet({ className, ...props }: React.ComponentProps<"pre"> & { code: string }) {
+function CodeSnippet({
+  className,
+  ...props
+}: React.ComponentProps<"pre"> & { code: string }) {
   return (
     <pre
       className={cn(
         "code-snippet p-1.5 rounded-md font-mono text-sm bg-slate-300 text-slate-700 ml-1 mr-1",
-        className
+        className,
       )}
       data-testid="code-snippet"
       {...props}
@@ -129,6 +145,5 @@ export {
   CardHeader,
   CardLabels,
   CardTitle,
-  CodeSnippet
+  CodeSnippet,
 };
-

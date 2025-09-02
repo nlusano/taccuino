@@ -1,9 +1,9 @@
-import type { Config } from 'jest'
-import nextJest from 'next/jest.js'
+import type { Config } from "jest";
+import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  dir: './',
-})
+  dir: "./",
+});
 
 const config: Config = {
   // bail: 0, // Stop running tests after `n` failures
@@ -15,14 +15,14 @@ const config: Config = {
     "!src/app/layout.tsx",
   ],
   coverageDirectory: "coverage",
-  coverageProvider: 'babel',
+  coverageProvider: "babel",
   moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/components/$1',
+    "^@/components/(.*)$": "<rootDir>/components/$1",
   },
-  testEnvironment: 'jsdom',
+  testEnvironment: "jsdom",
   testPathIgnorePatterns: [
     "src/__tests__/fixtureData/labels.ts", // ignore fixture data
-  ]
-}
+  ],
+};
 
-export default createJestConfig(config)
+export default createJestConfig(config);

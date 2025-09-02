@@ -1,42 +1,42 @@
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import MarkdownCard from '../app/cards/markdown'
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import MarkdownCard from "../app/cards/markdown";
 
-describe('MarkdownCard isVisible is true', () => {
+describe("MarkdownCard isVisible is true", () => {
   beforeEach(() => {
-    render(<MarkdownCard isVisible={true} />)
-  })
+    render(<MarkdownCard isVisible={true} />);
+  });
 
-  it('renders a card', () => {
-    const card = screen.getByTestId('markdown-card')
+  it("renders a card", () => {
+    const card = screen.getByTestId("markdown-card");
 
-    expect(card).toBeInTheDocument()
-    expect(card).toBeVisible()
-  })
+    expect(card).toBeInTheDocument();
+    expect(card).toBeVisible();
+  });
 
-  it('renders a title in the card header', () => {
-    const title = screen.getByTestId("card-title")
+  it("renders a title in the card header", () => {
+    const title = screen.getByTestId("card-title");
 
-    expect(title).toBeInTheDocument()
-    expect(title).toBeVisible()
-    expect(title.textContent).toBe("Markdown helper")
-  })
+    expect(title).toBeInTheDocument();
+    expect(title).toBeVisible();
+    expect(title.textContent).toBe("Markdown helper");
+  });
 
-  it('renders content', () => {
-    const content = screen.getByTestId('markdown-card-content')
+  it("renders content", () => {
+    const content = screen.getByTestId("markdown-card-content");
 
-    expect(content).toBeInTheDocument()
-    expect(content).toBeVisible()
-  })
-})
+    expect(content).toBeInTheDocument();
+    expect(content).toBeVisible();
+  });
+});
 
-describe('MarkdownCard isVisible is false', () => {
-  it('renders nothing', () => {
-    render(<MarkdownCard isVisible={false} />)
+describe("MarkdownCard isVisible is false", () => {
+  it("renders nothing", () => {
+    render(<MarkdownCard isVisible={false} />);
 
-    const card = screen.queryByTestId('markdown-card')
+    const card = screen.queryByTestId("markdown-card");
 
-    expect(card).not.toBeInTheDocument()
-    expect(card).toBeNull()
-  })
-})
+    expect(card).not.toBeInTheDocument();
+    expect(card).toBeNull();
+  });
+});
