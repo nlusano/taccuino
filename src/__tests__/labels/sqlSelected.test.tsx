@@ -5,7 +5,7 @@ jest.mock('next/navigation', () => ({
   })
 }));
 
-import Filter from '@/app/filter';
+import Labels from '@/app/labels';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { labels } from '../fixtureData/labels';
@@ -17,7 +17,7 @@ describe("Labels when sql label is selected", () => {
         : ""
 
     it(`${testNamePartial} with href: ${href}`, () => {
-      render(<Filter />)
+      render(<Labels />)
       const linkButtons = screen.getAllByTestId('filter-nav-link')
       const button = linkButtons[index]
 

@@ -1,7 +1,7 @@
 import React from "react";
 import MarkdownCard from "./cards/markdown";
-import Filter from "./filter";
 import "./general.css";
+import Labels from "./labels";
 
 export default function Home({ searchParams }: { searchParams: Promise<{ label: string }> }) {
   const { label }: { label: string } = React.use(searchParams)
@@ -16,7 +16,7 @@ export default function Home({ searchParams }: { searchParams: Promise<{ label: 
           <h1 className="text-6xl text-slate-700 font-semibold">Taccuino</h1>
         </div>
         <div id="snippets" data-testid="page-content">
-          <Filter />
+          <Labels />
           <div id="Snippet 2" className="grid grid-cols-1 gap-6 md:grid-cols-1">
             < MarkdownCard isVisible={isMarkdownVisible} />
             {isSqlVisible ?

@@ -5,7 +5,7 @@ jest.mock('next/navigation', () => ({
   })
 }));
 
-import Filter from '@/app/filter';
+import Labels from '@/app/labels';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { labels } from '../fixtureData/labels';
@@ -13,7 +13,7 @@ import { labels } from '../fixtureData/labels';
 describe("Labels when no label is selected", () => {
   Object.entries(labels.selected.none).map(([buttonName, { href }]: [string, { href: string }], index: number) => {
     it(`renders the ${buttonName} button with href: ${href}`, () => {
-      render(<Filter />)
+      render(<Labels />)
       const linkButtons = screen.getAllByTestId('filter-nav-link')
       const button = linkButtons[index]
 
