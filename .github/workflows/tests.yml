@@ -17,6 +17,10 @@ jobs:
       - name: Yarn install
         run: |
           yarn
+    
+      - name: Build
+        run: |
+          yarn build
 
       - name: Lint
         run: |
@@ -26,7 +30,3 @@ jobs:
       - name: Run tests
         run: |
           yarn test
-
-      - name: Build
-        run: |
-          yarn build
