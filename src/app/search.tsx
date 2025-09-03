@@ -7,20 +7,6 @@ export default function Search({ placeholder }: { placeholder?: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  // function handleSearch(term: string) {
-  //   const params = Object.fromEntries(searchParams);
-
-  //   console.log({ pathname, term, params });
-
-  //   if (term) {
-  //     params.query = term;
-  //   } else {
-  //     delete params.query;
-  //   }
-
-  //   replace(`${pathname}?${params.query.toString()}`);
-  // }
-
   function handleSearch(term: string) {
     const params = new URLSearchParams(searchParams);
     if (term) {
