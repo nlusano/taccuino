@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 
 export default function Filter() {
   const params = useSearchParams();
+  const active = params.get("label") || "";
+
   const labels = [
     {
       display: "markdown",
@@ -15,7 +17,6 @@ export default function Filter() {
       name: "sql",
     },
   ];
-  const active = params.get("label") || "";
 
   const toggleQuery = (key: string, value: string) => {
     const query = Object.fromEntries(params);
