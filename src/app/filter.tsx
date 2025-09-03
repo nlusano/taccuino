@@ -30,28 +30,26 @@ export default function Filter() {
   };
 
   return (
-    <section>
-      <div className="m-5 bg-slate-100 text-right">
-        {labels.map((label) => (
-          <Link
-            key={label.name}
-            href={{
-              pathname: "/",
-              query: toggleQuery("label", label.name),
+    <div className="m-5 bg-slate-100 text-right">
+      {labels.map((label) => (
+        <Link
+          key={label.name}
+          href={{
+            pathname: "/",
+            query: toggleQuery("label", label.name),
+          }}
+          data-testid="filter-nav-link"
+          className={label.name === active ? "active" : ""}
+        >
+          <FilterByLabelButton
+            label={{
+              display: label.display,
+              isActive: active,
+              name: label.name,
             }}
-            data-testid="filter-nav-link"
-            className={label.name === active ? "active" : ""}
-          >
-            <FilterByLabelButton
-              label={{
-                display: label.display,
-                isActive: active,
-                name: label.name,
-              }}
-            />
-          </Link>
-        ))}
-      </div>
-    </section>
+          />
+        </Link>
+      ))}
+    </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import MarkdownCard from "./cards/markdown";
 import Filter from "./filter";
 import "./general.css";
+import Search from "./search";
 
 export default function Home({
   searchParams,
@@ -20,7 +21,10 @@ export default function Home({
           <h1 className="text-6xl text-slate-700 font-semibold">Taccuino</h1>
         </div>
         <div id="snippets" data-testid="page-content">
+<section>
+            <Search />
           <Filter />
+</section>
           <div id="Snippet 2" className="grid grid-cols-1 gap-6 md:grid-cols-1">
             <MarkdownCard isVisible={isMarkdownVisible} />
             {isSqlVisible ? (
