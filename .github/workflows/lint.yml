@@ -4,6 +4,10 @@ name: Lint
 # or API.
 on:
   pull_request:
+  workflow_run:
+    workflows: ["Build"]
+    types: 
+      - completed
 
 jobs:
   lint:
