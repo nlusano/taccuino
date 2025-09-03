@@ -5,13 +5,10 @@ name: Run tests
 on:
   pull_request:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Lint"]
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout
