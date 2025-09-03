@@ -1,10 +1,34 @@
 "use client";
-
 import { SearchIcon } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Search({ placeholder }: { placeholder?: string }) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  // function handleSearch(term: string) {
+  //   const params = Object.fromEntries(searchParams);
+
+  //   console.log({ pathname, term, params });
+
+  //   if (term) {
+  //     params.query = term;
+  //   } else {
+  //     delete params.query;
+  //   }
+
+  //   replace(`${pathname}?${params.query.toString()}`);
+  // }
+
   function handleSearch(term: string) {
-    console.log(term);
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
+    }
+    replace(`${pathname}?${params.toString()}`);
   }
 
   return (
