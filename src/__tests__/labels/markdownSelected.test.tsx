@@ -7,10 +7,10 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
+import Filter from "@/app/filter";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { labels } from "../fixtureData/labels";
-import Labels from "@/app/labels";
 
 describe("Labels when markdown label is selected", () => {
   Object.entries(labels.selected.markdown).map(
@@ -29,7 +29,7 @@ describe("Labels when markdown label is selected", () => {
             : "";
 
       it(`${testNamePartial} with href: ${href}`, () => {
-        render(<Labels />);
+        render(<Filter />);
         const linkButtons = screen.getAllByTestId("filter-nav-link");
         const button = linkButtons[index];
 

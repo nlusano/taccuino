@@ -3,7 +3,7 @@ import { FilterByLabelButton } from "@/components/ui/button_filterByLabel";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-export default function Labels() {
+export default function Filter() {
   const params = useSearchParams();
   const labels = [
     {
