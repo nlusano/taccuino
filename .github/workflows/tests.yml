@@ -21,6 +21,15 @@ jobs:
         run: |
           yarn
 
+      - name: Lint
+        run: |
+          yarn lint
+          yarn next telemetry disable
+
       - name: Run tests
         run: |
           yarn test
+
+      - name: Build
+        run: |
+          yarn build
