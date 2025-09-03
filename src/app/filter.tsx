@@ -31,7 +31,7 @@ export default function Filter() {
   };
 
   return (
-    <div className="m-5 bg-slate-100 text-right">
+    <div className="m-5 mt-0 bg-slate-100 text-right">
       {labels.map((label) => (
         <Link
           key={label.name}
