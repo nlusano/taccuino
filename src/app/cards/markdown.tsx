@@ -6,11 +6,25 @@ import MarkdownTogglableDetails from "./markdown_togglableDetails";
 export default function MarkdownCard(
   props: React.ComponentProps<"div"> & {
     isVisible: boolean;
+    query: string;
   },
 ) {
+  const { isVisible, query } = props;
   const { content, labels, title } = GitHubMarkdown;
 
-  return props.isVisible ? (
+  const regexp = new RegExp(query, "gim");
+
+  const isTogglaDetailsMatch =
+    regexp.test(content.toggleDetails.snippet) ||
+    regexp.test(content.toggleDetails.title);
+
+  const isTogglaDetailsVisible =
+    (!query && isVisible) || // there are no active queries and the card is visible
+    (!!query && (regexp.test(title) || isTogglaDetailsMatch)); // active query that matches either card title or snippet title or content
+
+  const isCardVisible = isVisible || (!!query && regexp.test(title));
+
+  return isCardVisible ? (
     <Card
       data-testid="markdown-card"
       className="p-3.5 shadow-md"
@@ -25,7 +39,10 @@ export default function MarkdownCard(
         data-testid="markdown-card-content"
         className="rounded-sm mt-3"
       >
-        <MarkdownTogglableDetails id={content.toggleDetails.title} />
+        <MarkdownTogglableDetails
+          isVisible={isTogglaDetailsVisible}
+          id={content.toggleDetails.title}
+        />
       </CardContent>
     </Card>
   ) : null;
