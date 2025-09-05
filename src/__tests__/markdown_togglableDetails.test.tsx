@@ -4,7 +4,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 describe("MarkdownTogglableDetails", () => {
   beforeEach(() => {
-    render(<MarkdownTogglableDetails />);
+    render(
+      <MarkdownTogglableDetails isVisible={true} id="Togglable details" />,
+    );
   });
 
   it("renders a title in the card header", () => {

@@ -4,7 +4,7 @@ import MarkdownCard from "../app/cards/markdown";
 
 describe("MarkdownCard isVisible is true", () => {
   beforeEach(() => {
-    render(<MarkdownCard isVisible={true} />);
+    render(<MarkdownCard isVisible={true} query="" />);
   });
 
   it("renders a card", () => {
@@ -19,7 +19,7 @@ describe("MarkdownCard isVisible is true", () => {
 
     expect(title).toBeInTheDocument();
     expect(title).toBeVisible();
-    expect(title.textContent).toBe("Markdown helper");
+    expect(title.textContent).toBe("Markdown");
   });
 
   it("renders content", () => {
@@ -32,7 +32,7 @@ describe("MarkdownCard isVisible is true", () => {
 
 describe("MarkdownCard isVisible is false", () => {
   it("renders nothing", () => {
-    render(<MarkdownCard isVisible={false} />);
+    render(<MarkdownCard isVisible={false} query="" />);
 
     const card = screen.queryByTestId("markdown-card");
 
