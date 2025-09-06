@@ -26,7 +26,10 @@ export default function Search({ placeholder }: { placeholder?: string }) {
   }
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0 mx-5">
+    <div
+      data-testid="searchbar"
+      className="relative flex flex-1 flex-shrink-0 mx-5"
+    >
       <label htmlFor="search" className="sr-only">
         Search
       </label>
@@ -37,10 +40,11 @@ export default function Search({ placeholder }: { placeholder?: string }) {
           handleSearch(e.target.value);
           setQueryText(e.target.value);
         }}
-                value={searchParams.get("query") || queryText}
+        value={searchParams.get("query") || queryText}
       />
       <SearchIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
       <XIcon
+        data-testid="cancel-button"
         className="absolute left-43 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900"
         onClick={() => handleClick()}
       />
