@@ -5,6 +5,10 @@ jest.mock("next/navigation", () => ({
       yield ["label", "markdown"];
     },
   }),
+  usePathname: () => "/",
+  useRouter: () => ({
+    replace: jest.fn(),
+  }),
 }));
 
 import Home from "@/app/page";
@@ -14,7 +18,11 @@ import { act, render, screen } from "@testing-library/react";
 describe("Page when markdown label is selected", () => {
   beforeEach(async () => {
     await act(async () => {
-      render(<Home searchParams={Promise.resolve({ label: "markdown" })} />);
+      render(
+        <Home
+          searchParams={Promise.resolve({ label: "markdown", query: "" })}
+        />,
+      );
     });
   });
 

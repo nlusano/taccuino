@@ -5,6 +5,10 @@ jest.mock("next/navigation", () => ({
       yield ["label", "sql"];
     },
   }),
+  usePathname: () => "/",
+  useRouter: () => ({
+    replace: jest.fn(),
+  }),
 }));
 
 import Home from "@/app/page";
@@ -14,7 +18,9 @@ import { act, render, screen, waitFor } from "@testing-library/react";
 describe("Page when sql label is selected", () => {
   beforeEach(async () => {
     await act(async () => {
-      render(<Home searchParams={Promise.resolve({ label: "sql" })} />);
+      render(
+        <Home searchParams={Promise.resolve({ label: "sql", query: "" })} />,
+      );
     });
   });
 

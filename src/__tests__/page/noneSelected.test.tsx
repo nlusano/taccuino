@@ -5,6 +5,10 @@ jest.mock("next/navigation", () => ({
       yield ["", ""];
     },
   }),
+  usePathname: () => "/",
+  useRouter: () => ({
+    replace: jest.fn(),
+  }),
 }));
 
 import Home from "@/app/page";
