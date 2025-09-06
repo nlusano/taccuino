@@ -15,7 +15,7 @@ import Home from "@/app/page";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Page when markdown label is selected", () => {
+describe("Page when markdown label is selected and no query is present", () => {
   beforeEach(async () => {
     await act(async () => {
       render(

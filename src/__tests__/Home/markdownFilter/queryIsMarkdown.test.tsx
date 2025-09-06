@@ -1,8 +1,8 @@
 jest.mock("next/navigation", () => ({
   useSearchParams: () => ({
-    get: (key: string) => (key === "label" ? "" : undefined),
+    get: (key: string) => (key === "label" ? "markdown" : null),
     [Symbol.iterator]: function* () {
-      yield ["", ""];
+      yield ["label", "markdown"];
     },
   }),
   usePathname: () => "/",
@@ -15,11 +15,15 @@ import Home from "@/app/page";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Page when no label is selected", () => {
+// TODO
+describe("Page when markdown label is selected and the query is about markdown", () => {
   beforeEach(async () => {
     await act(async () => {
-      /* eslint-disable @typescript-eslint/no-explicit-any */
-      render(<Home searchParams={Promise.resolve({} as any)} />);
+      render(
+        <Home
+          searchParams={Promise.resolve({ label: "markdown", query: "togglable" })}
+        />,
+      );
     });
   });
 
@@ -31,16 +35,17 @@ describe("Page when no label is selected", () => {
     expect(title.textContent).toBe("Taccuino");
   });
 
-  it("renders all cards", () => {
+  it("renders only the markdown card", () => {
     const cards = screen.getAllByRole("card");
 
-    expect(cards).toHaveLength(2);
-    cards.map((card, index) => {
+    expect(cards).toHaveLength(1);
+    cards.map((card) => {
       expect(card).toBeInTheDocument();
       expect(card).toBeVisible();
 
-      if (index === 0) expect(card.textContent).toMatch(/markdown/gim);
-      if (index === 1) expect(card.textContent).toMatch(/sql/gim);
+      expect(card.textContent).toMatch(/markdown/gim);
+      expect(card.textContent).not.toMatch(/sql/gim);
     });
   });
 });
+
