@@ -31,6 +31,16 @@ describe("Page when no label is selected and no query is input", () => {
     expect(title.textContent).toBe("Taccuino");
   });
 
+  it("renders a searchbar with a cancel button", () => {
+    const searchbar = screen.getByTestId("searchbar");
+    const cancelButton = screen.getByTestId("cancel-button");
+
+    expect(searchbar).toBeInTheDocument();
+    expect(searchbar).toBeVisible();
+    expect(cancelButton).toBeInTheDocument();
+    expect(cancelButton).toBeVisible();
+  });
+
   it("renders all cards", () => {
     const cards = screen.getAllByRole("card");
 
