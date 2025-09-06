@@ -5,6 +5,10 @@ jest.mock("next/navigation", () => ({
       yield ["", ""];
     },
   }),
+  // usePathname: () => "/",
+  // useRouter: () => ({
+  //   replace: jest.fn(),
+  // }),
 }));
 
 import Filter from "@/app/filter";
