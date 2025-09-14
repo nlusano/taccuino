@@ -12,7 +12,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { labels } from "../fixtureData/labels";
 
-describe("Labels when sql label is selected", () => {
+describe("Filter when sql label is selected", () => {
   Object.entries(labels.selected.sql).map(
     (
       [buttonName, { href, className }]: [

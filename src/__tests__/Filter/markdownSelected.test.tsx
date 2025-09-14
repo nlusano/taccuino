@@ -12,7 +12,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { labels } from "../fixtureData/labels";
 
-describe("Labels when markdown label is selected", () => {
+describe("Filter when markdown label is selected", () => {
   Object.entries(labels.selected.markdown).map(
     (
       [buttonName, { href, className }]: [
