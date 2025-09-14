@@ -1,7 +1,8 @@
 "use client";
-import { FilterByLabelButton } from "@/components/ui/FilterByLabelButton";
+
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { FilterByLabelButton } from "./buttons/FilterByLabelButton";
 
 export default function Filter() {
   const params = useSearchParams();

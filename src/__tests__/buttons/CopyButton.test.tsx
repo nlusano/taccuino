@@ -1,4 +1,4 @@
-import { CopyButton } from "@/components/ui/CopyButton";
+import { CopyButton } from "@/app/buttons/CopyButton";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 

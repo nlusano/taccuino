@@ -3,7 +3,7 @@ import * as React from "react";
 
 import { cn, copyTextToClipboard } from "@/lib/utils";
 import { CheckCheck, Copy } from "lucide-react";
-import { Button } from "./button";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 function CopyButton(props: React.ComponentProps<"button"> & { text: string }) {

@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { CopyButton } from "./CopyButton";
-import { FilterByLabelButton } from "./FilterByLabelButton";
+import { CopyButton } from "@/app/buttons/CopyButton";
+import { FilterByLabelButton } from "@/app/buttons/FilterByLabelButton";
 
 function Card({
   className,

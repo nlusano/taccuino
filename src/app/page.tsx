@@ -1,8 +1,8 @@
 import React from "react";
 import MarkdownCard from "./cards/MarkdownCard";
-import Filter from "../components/ui/Filter";
+import Filter from "./Filter";
 import "./general.css";
-import Search from "../components/ui/Search";
+import Search from "./Search";
 
 export default function Home({
   searchParams,
