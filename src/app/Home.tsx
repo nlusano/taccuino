@@ -1,6 +1,6 @@
 import React from "react";
 import MarkdownCard from "./cards/markdown";
-import Filter from "./filter";
+import Filter from "./filterz";
 import "./general.css";
 import Search from "./search";
 
