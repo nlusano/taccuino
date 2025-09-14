@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import MarkdownCard from "../app/cards/markdown";
+import MarkdownCard from "../app/cards/MarkdownCard";
+import { cards } from "@/components/data/appData";
 
 describe("MarkdownCard isVisible is true", () => {
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe("MarkdownCard isVisible is true", () => {
 
     expect(title).toBeInTheDocument();
     expect(title).toBeVisible();
-    expect(title.textContent).toBe("Markdown");
+    expect(title.textContent).toBe(cards.markdown.title);
   });
 
   it("renders content", () => {
