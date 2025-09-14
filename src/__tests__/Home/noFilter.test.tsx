@@ -11,11 +11,11 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-import Home from "@/app/Home";
+import Home from "@/app/page";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Page when no label is selected", () => {
+describe("Home when no label is selected", () => {
   describe("and no query is input", () => {
     beforeEach(async () => {
       await act(async () => {

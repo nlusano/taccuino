@@ -11,12 +11,12 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-import Home from "@/app/Home";
+import Home from "@/app/page";
 import { cards } from "@/components/data/appData";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Page when the markdown label is selected", () => {
+describe("Home when the markdown label is selected", () => {
   describe("and there is no query", () => {
     beforeEach(async () => {
       await act(async () => {
@@ -76,9 +76,9 @@ describe("Page when the markdown label is selected", () => {
     });
 
     it("renders the matching snippet", () => {
-            const snippet = screen.getByTestId("markdown-card--togglable-details");
-      
-            expect(snippet).toBeVisible();
+      const snippet = screen.getByTestId("markdown-card--togglable-details");
+
+      expect(snippet).toBeVisible();
       expect(snippet.textContent).toMatch(/togglable/gim);
     });
   });

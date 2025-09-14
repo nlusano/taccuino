@@ -11,12 +11,12 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-import Home from "@/app/Home";
+import Home from "@/app/page";
 import { cards } from "@/components/data/appData";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Page when the sql label is selected", () => {
+describe("Home when the sql label is selected", () => {
   describe("and there is no query", () => {
     beforeEach(async () => {
       await act(async () => {
