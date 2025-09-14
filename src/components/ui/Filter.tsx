@@ -1,5 +1,5 @@
 "use client";
-import { FilterByLabelButton } from "@/components/ui/button_filterByLabel";
+import { FilterByLabelButton } from "@/components/ui/FilterByLabelButton";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 

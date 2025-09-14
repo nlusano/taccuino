@@ -1,4 +1,4 @@
-import MarkdownTogglableDetails from "@/app/cards/MarkdownTogglableDetails";
+import MarkdownTogglableDetails from "@/components/helperSnippets/MarkdownTogglableDetails";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
