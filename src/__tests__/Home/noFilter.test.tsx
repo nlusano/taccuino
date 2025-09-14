@@ -11,7 +11,7 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-import Home from "@/app/page";
+import Home from "@/app/Home";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 

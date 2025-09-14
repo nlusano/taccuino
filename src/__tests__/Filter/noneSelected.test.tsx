@@ -7,7 +7,7 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-import Filter from "@/app/filterz";
+import Filter from "@/app/Filter";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { labels } from "../fixtureData/labels";
