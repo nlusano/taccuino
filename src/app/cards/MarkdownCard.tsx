@@ -1,7 +1,7 @@
 import { GitHubMarkdown } from "@/components/data/markdown";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
-import MarkdownTogglableDetails from "./markdown_togglableDetails";
+import MarkdownTogglableDetails from "./MarkdownTogglableDetails";
 
 export default function MarkdownCard(
   props: React.ComponentProps<"div"> & {
