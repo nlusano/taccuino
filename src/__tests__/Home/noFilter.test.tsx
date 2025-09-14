@@ -58,6 +58,7 @@ describe("Page when no label is selected", () => {
       });
     });
   });
+
   describe("and the query is not a match", () => {
     beforeEach(async () => {
       await act(async () => {

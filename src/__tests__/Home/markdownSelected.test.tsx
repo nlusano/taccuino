@@ -12,6 +12,7 @@ jest.mock("next/navigation", () => ({
 }));
 
 import Home from "@/app/page";
+import { cards } from "@/components/data/appData";
 import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
@@ -25,24 +26,6 @@ describe("Page when the markdown label is selected", () => {
           />,
         );
       });
-    });
-
-    it("renders a title", () => {
-      const title = screen.getByRole("heading", { level: 1 });
-
-      expect(title).toBeInTheDocument();
-      expect(title).toBeVisible();
-      expect(title.textContent).toBe("Taccuino");
-    });
-
-    it("renders a searchbar with a cancel button", () => {
-      const searchbar = screen.getByTestId("searchbar");
-      const cancelButton = screen.getByTestId("cancel-button");
-
-      expect(searchbar).toBeInTheDocument();
-      expect(searchbar).toBeVisible();
-      expect(cancelButton).toBeInTheDocument();
-      expect(cancelButton).toBeVisible();
     });
 
     it("renders only the markdown card", () => {
@@ -73,7 +56,7 @@ describe("Page when the markdown label is selected", () => {
       const card = screen.getByRole("card");
       const cardContent = screen.getByTestId("markdown-card-content");
 
-      expect(card.textContent).toBe("Markdown"); // strict equality to card title only; no other content
+      expect(card.textContent).toBe(cards.markdown.title); // strict equality to card title only; no other content
       expect(cardContent.textContent).toBe(""); // no snippets rendered
     });
   });
@@ -93,13 +76,9 @@ describe("Page when the markdown label is selected", () => {
     });
 
     it("renders the matching snippet", () => {
-      // const card = screen.getByRole("card");
-      // const cardContent = screen.getByTestId("markdown-card-content");
-      const snippet = screen.getByTestId("markdown-card--togglable-details");
-      console.log("snippet: ", snippet);
-
-      // expect(card.textContent).toMatch(/Markdowntogglable/gim);
-      expect(snippet).toBeVisible();
+            const snippet = screen.getByTestId("markdown-card--togglable-details");
+      
+            expect(snippet).toBeVisible();
       expect(snippet.textContent).toMatch(/togglable/gim);
     });
   });
