@@ -15,10 +15,3 @@ export const labels = {
   },
 };
 
-const searchQueries = {
-  noMatch: {
-    query: "bla",
-    totalNrCards: 2,
-    totalNrSnippets: 0,
-  },
-};
