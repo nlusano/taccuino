@@ -39,9 +39,11 @@ export default function Home({
                 className="rounded-lg bg-slate-600 p-6 text-slate-300"
               >
                 <h3 className="mb-2 text-xl font-semibold">SQL</h3>
-                {isSqlSnippetVisible ? (
-                  <p data-testid="sql-card--test-snippet">Test sql snippet</p>
-                ) : null}
+                <div data-testid="sql-card-content">
+                  {isSqlSnippetVisible ? (
+                    <p data-testid="sql-card--test-snippet">Test sql snippet</p>
+                  ) : null}
+                </div>
               </div>
             ) : null}
           </div>
