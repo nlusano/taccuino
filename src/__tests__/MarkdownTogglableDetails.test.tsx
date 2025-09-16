@@ -1,10 +1,12 @@
-import MarkdownTogglableDetails from "@/app/cards/markdown_togglableDetails";
+import MarkdownTogglableDetails from "@/app/cards/MarkdownTogglableDetails";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 describe("MarkdownTogglableDetails", () => {
   beforeEach(() => {
-    render(<MarkdownTogglableDetails />);
+    render(
+      <MarkdownTogglableDetails isVisible={true} id="Togglable details" />,
+    );
   });
 
   it("renders a title in the card header", () => {

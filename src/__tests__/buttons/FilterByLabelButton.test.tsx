@@ -1,4 +1,4 @@
-import { FilterByLabelButton } from "@/components/ui/button_filterByLabel";
+import { FilterByLabelButton } from "@/app/buttons/FilterByLabelButton";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 

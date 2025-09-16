@@ -1,10 +1,11 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import MarkdownCard from "../app/cards/markdown";
+import MarkdownCard from "../app/cards/MarkdownCard";
+import { cards } from "@/components/data/appData";
 
 describe("MarkdownCard isVisible is true", () => {
   beforeEach(() => {
-    render(<MarkdownCard isVisible={true} />);
+    render(<MarkdownCard isVisible={true} query="" />);
   });
 
   it("renders a card", () => {
@@ -19,7 +20,7 @@ describe("MarkdownCard isVisible is true", () => {
 
     expect(title).toBeInTheDocument();
     expect(title).toBeVisible();
-    expect(title.textContent).toBe("Markdown helper");
+    expect(title.textContent).toBe(cards.markdown.title);
   });
 
   it("renders content", () => {
@@ -32,7 +33,7 @@ describe("MarkdownCard isVisible is true", () => {
 
 describe("MarkdownCard isVisible is false", () => {
   it("renders nothing", () => {
-    render(<MarkdownCard isVisible={false} />);
+    render(<MarkdownCard isVisible={false} query="" />);
 
     const card = screen.queryByTestId("markdown-card");
 

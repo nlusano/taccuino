@@ -1,5 +1,5 @@
 export const GitHubMarkdown = {
-  title: "Markdown helper",
+  title: "Markdown",
   content: {
     toggleDetails: {
       title: "Togglable details",

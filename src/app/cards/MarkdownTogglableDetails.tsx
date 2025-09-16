@@ -1,11 +1,17 @@
 import { GitHubMarkdown } from "@/components/data/markdown";
 import { CardContent, CardHeader, CodeSnippet } from "@/components/ui/card";
 
-export default function MarkdownTogglableDetails({ id }: { id: string }) {
+export default function MarkdownTogglableDetails({
+  id,
+  isVisible,
+}: {
+  id: string;
+  isVisible: boolean;
+}) {
   const { toggleDetails } = GitHubMarkdown.content;
 
-  return (
-    <CardContent id={id}>
+  return isVisible ? (
+    <CardContent id={id} data-testid="markdown-card--togglable-details">
       <CardHeader className="rounded-sm font-semibold text-xs">
         {toggleDetails.title.toUpperCase()}
       </CardHeader>
@@ -14,5 +20,5 @@ export default function MarkdownTogglableDetails({ id }: { id: string }) {
         code={toggleDetails.snippet}
       />
     </CardContent>
-  );
+  ) : null;
 }
