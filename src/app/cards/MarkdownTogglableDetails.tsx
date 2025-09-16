@@ -11,8 +11,12 @@ export default function MarkdownTogglableDetails({
   const { toggleDetails } = GitHubMarkdown.content;
 
   return isVisible ? (
-    <CardContent id={id} data-testid="markdown-card--togglable-details">
-      <CardHeader className="rounded-sm font-semibold text-xs">
+    <CardContent
+      id={id}
+      data-testid="markdown-card--togglable-details"
+      className="mt-5"
+    >
+      <CardHeader className="rounded-sm font-semibold text-xs text-sky-200">
         {toggleDetails.title.toUpperCase()}
       </CardHeader>
       <CodeSnippet

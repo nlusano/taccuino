@@ -47,10 +47,7 @@ export default function MarkdownCard(
         {/* <CardLabels labels={labels} /> */}
         <CardTitle className="text-4xl font-semibold">{title}</CardTitle>
       </CardHeader>
-      <CardContent
-        data-testid="markdown-card-content"
-        className="rounded-sm mt-3"
-      >
+      <CardContent data-testid="markdown-card-content" className="rounded-sm">
         <MarkdownTogglableDetails
           isVisible={isTogglaDetailsVisible}
           id={toggleDetails.title}

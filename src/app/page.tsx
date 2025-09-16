@@ -22,7 +22,7 @@ export default function Home({
 
   return (
     <main className="min-h-screen bg-slate-100 pt-20 text-slate-900">
-      <div className="mx-auto flex max-w-4xl flex-col gap-12 px-6">
+      <div className="mx-auto flex max-w-4xl flex-col gap-12 px-6 mb-5">
         <div className="text-left">
           <h1 className="text-6xl text-slate-700 font-semibold">Taccuino</h1>
         </div>
