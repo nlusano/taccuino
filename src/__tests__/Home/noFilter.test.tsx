@@ -16,7 +16,7 @@ import "@testing-library/jest-dom";
 import { act, render, screen } from "@testing-library/react";
 
 describe("Home when no label is selected", () => {
-  describe("and no query is input", () => {
+  describe("and there is no initial query", () => {
     beforeEach(async () => {
       await act(async () => {
         /* eslint-disable @typescript-eslint/no-explicit-any */
