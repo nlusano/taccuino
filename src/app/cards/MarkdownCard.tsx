@@ -13,6 +13,7 @@ export default function MarkdownCard(
   const { isVisible, query } = props;
   const { content, labels, title } = GitHubMarkdown;
   const { highlight, toggleDetails } = content;
+  const { note, tip, important, warning, caution } = highlight.snippet;
 
   const regexp = new RegExp(query, "gim");
 
@@ -25,7 +26,12 @@ export default function MarkdownCard(
   );
 
   const isHighlightVisible = isSnippetVisible(
-    regexp.test(highlight.snippet) || regexp.test(highlight.title),
+    regexp.test(note) ||
+      regexp.test(tip) ||
+      regexp.test(important) ||
+      regexp.test(warning) ||
+      regexp.test(caution) ||
+      regexp.test(highlight.title),
   );
 
   const isCardVisible = isVisible || (!!query && regexp.test(title));
