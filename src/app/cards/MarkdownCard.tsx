@@ -2,6 +2,7 @@ import { GitHubMarkdown } from "@/components/data/markdown";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 import MarkdownTogglableDetails from "@/app/cards/MarkdownTogglableDetails";
+import MarkdownHighlight from "@/app/cards/MarkdownHighlight";
 
 export default function MarkdownCard(
   props: React.ComponentProps<"div"> & {
@@ -11,16 +12,21 @@ export default function MarkdownCard(
 ) {
   const { isVisible, query } = props;
   const { content, labels, title } = GitHubMarkdown;
+  const { highlight, toggleDetails } = content;
 
   const regexp = new RegExp(query, "gim");
 
-  const isTogglaDetailsMatch =
-    regexp.test(content.toggleDetails.snippet) ||
-    regexp.test(content.toggleDetails.title);
-
-  const isTogglaDetailsVisible =
+  const isSnippetVisible = (condition: boolean) =>
     (!query && isVisible) || // there are no active queries and the card is visible
-    (!!query && (regexp.test(title) || isTogglaDetailsMatch)); // active query that matches either card title or snippet title or content
+    (!!query && (regexp.test(title) || condition)); // active query that matches either card title or snippet title or content
+
+  const isTogglaDetailsVisible = isSnippetVisible(
+    regexp.test(toggleDetails.snippet) || regexp.test(toggleDetails.title),
+  );
+
+  const isHighlightVisible = isSnippetVisible(
+    regexp.test(highlight.snippet) || regexp.test(highlight.title),
+  );
 
   const isCardVisible = isVisible || (!!query && regexp.test(title));
 
@@ -41,7 +47,11 @@ export default function MarkdownCard(
       >
         <MarkdownTogglableDetails
           isVisible={isTogglaDetailsVisible}
-          id={content.toggleDetails.title}
+          id={toggleDetails.title}
+        />
+        <MarkdownHighlight
+          isVisible={isHighlightVisible}
+          id={highlight.title}
         />
       </CardContent>
     </Card>
