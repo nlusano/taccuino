@@ -38,3 +38,18 @@ describe("MarkdownTogglableDetails", () => {
     waitFor(() => expect(copyButton).toBeUndefined());
   });
 });
+
+ describe("MarkdownTogglableDetails isVisible is false", () => {
+   it("renders nothing", () => {
+     render(
+       <MarkdownTogglableDetails isVisible={false} id="Togglable details" />,
+     );
+
+     const detailsHelper = screen.queryByTestId(
+       "markdown-card--togglable-details",
+     );
+
+     expect(detailsHelper).not.toBeInTheDocument();
+     expect(detailsHelper).toBeNull();
+   });
+ });
