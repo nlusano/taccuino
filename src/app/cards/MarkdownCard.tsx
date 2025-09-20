@@ -2,6 +2,7 @@ import { GitHubMarkdown } from "@/components/data/markdown";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 import MarkdownTogglableDetails from "@/app/cards/MarkdownTogglableDetails";
+import MarkdownHighlight from "@/app/cards/MarkdownHighlight";
 
 export default function MarkdownCard(
   props: React.ComponentProps<"div"> & {
@@ -11,16 +12,27 @@ export default function MarkdownCard(
 ) {
   const { isVisible, query } = props;
   const { content, labels, title } = GitHubMarkdown;
+  const { highlight, toggleDetails } = content;
+  const { note, tip, important, warning, caution } = highlight.snippet;
 
   const regexp = new RegExp(query, "gim");
 
-  const isTogglaDetailsMatch =
-    regexp.test(content.toggleDetails.snippet) ||
-    regexp.test(content.toggleDetails.title);
-
-  const isTogglaDetailsVisible =
+  const isSnippetVisible = (condition: boolean) =>
     (!query && isVisible) || // there are no active queries and the card is visible
-    (!!query && (regexp.test(title) || isTogglaDetailsMatch)); // active query that matches either card title or snippet title or content
+    (!!query && (regexp.test(title) || condition)); // active query that matches either card title or snippet title or content
+
+  const isTogglaDetailsVisible = isSnippetVisible(
+    regexp.test(toggleDetails.snippet) || regexp.test(toggleDetails.title),
+  );
+
+  const isHighlightVisible = isSnippetVisible(
+    regexp.test(note) ||
+      regexp.test(tip) ||
+      regexp.test(important) ||
+      regexp.test(warning) ||
+      regexp.test(caution) ||
+      regexp.test(highlight.title),
+  );
 
   const isCardVisible = isVisible || (!!query && regexp.test(title));
 
@@ -35,13 +47,14 @@ export default function MarkdownCard(
         {/* <CardLabels labels={labels} /> */}
         <CardTitle className="text-4xl font-semibold">{title}</CardTitle>
       </CardHeader>
-      <CardContent
-        data-testid="markdown-card-content"
-        className="rounded-sm mt-3"
-      >
+      <CardContent data-testid="markdown-card-content" className="rounded-sm">
         <MarkdownTogglableDetails
           isVisible={isTogglaDetailsVisible}
-          id={content.toggleDetails.title}
+          id={toggleDetails.title}
+        />
+        <MarkdownHighlight
+          isVisible={isHighlightVisible}
+          id={highlight.title}
         />
       </CardContent>
     </Card>
